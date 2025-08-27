@@ -1,0 +1,15 @@
+#pragma once
+#include <qspinbox.h>
+#include <qsqlerror.h>
+#include <qmessagebox.h>
+#include <QPushButton>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QLineEdit>
+#include <QFormLayout>
+#include <QInputDialog>
+#include <QDialog>
+#include <QSqlQuery>
+#include <QVBoxLayout>
+#include <QtCharts/QChartView>
+#include <QtCharts/QLineSeries>

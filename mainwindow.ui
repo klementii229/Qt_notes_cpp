@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>837</width>
+    <height>604</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Заметки</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* ====== Главное окно ====== */
+QMainWindow {
+    background-color: #1e1e1e; /* Тёмный фон */
+    color: #e0e0e0;
+}
+
+/* ====== Меню ====== */
+QMenuBar {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+}
+QMenuBar::item:selected {
+    background-color: #3d3d3d;
+}
+QMenu {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+}
+QMenu::item:selected {
+    background-color: #3d3d3d;
+}
+
+/* ====== Кнопки ====== */
+QPushButton {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border: 1px solid #3d3d3d;
+    border-radius: 8px;
+    padding: 6px 12px;
+}
+QPushButton:hover {
+    background-color: #3c3c3c;
+}
+QPushButton:pressed {
+    background-color: #007acc;
+    border: 1px solid #005f99;
+}
+
+/* ====== Поле ввода (QLineEdit) ====== */
+QLineEdit {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+
+/* ====== QTextEdit ====== */
+QTextEdit {
+    background-color: #252525;
+    color: #e0e0e0;
+    border: 1px solid #3d3d3d;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+/* ====== Таблица ====== */
+QTableWidget {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border: 1px solid #3d3d3d;
+    border-radius: 6px;
+    gridline-color: #444;
+}
+QHeaderView::section {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+    padding: 4px;
+    border: none;
+}
+QTableWidget QTableCornerButton::section {
+    background-color: #2c2c2c;
+    border: none;
+}
+
+/* ====== Scrollbars ====== */
+QScrollBar:vertical {
+    background: #2c2c2c;
+    width: 12px;
+    margin: 0px;
+}
+QScrollBar::handle:vertical {
+    background: #555;
+    border-radius: 6px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #777;
+}
+
+QScrollBar:horizontal {
+    background: #2c2c2c;
+    height: 12px;
+    margin: 0px;
+}
+QScrollBar::handle:horizontal {
+    background: #555;
+    border-radius: 6px;
+}
+QScrollBar::handle:horizontal:hover {
+    background: #777;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="1,5,2,0,0">
+    <item>
+     <widget class="QLineEdit" name="title">
+      <property name="font">
+       <font>
+        <pointsize>25</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Title</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTextEdit" name="textEdit"/>
+    </item>
+    <item>
+     <widget class="QTableWidget" name="tableWidget">
+      <attribute name="horizontalHeaderStretchLastSection">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderStretchLastSection">
+       <bool>true</bool>
+      </attribute>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Orientation::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="addMetricBtn">
+        <property name="text">
+         <string>Добавить метрику</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="delMetricBtn">
+        <property name="text">
+         <string>Удалить метрику</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>837</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="Menu">
+    <property name="title">
+     <string>Меню</string>
+    </property>
+    <addaction name="actionShowChart"/>
+    <addaction name="actionSelectDay"/>
+    <addaction name="actionAddMetric"/>
+    <addaction name="actionSaveNote"/>
+    <addaction name="actionDeleteNote"/>
+   </widget>
+   <addaction name="Menu"/>
+  </widget>
+  <action name="actionShowChart">
+   <property name="text">
+    <string>Показать график</string>
+   </property>
+  </action>
+  <action name="actionSelectDay">
+   <property name="text">
+    <string>Выбрать день</string>
+   </property>
+  </action>
+  <action name="actionAddMetric">
+   <property name="text">
+    <string>Добавить метрику</string>
+   </property>
+  </action>
+  <action name="actionSaveNote">
+   <property name="text">
+    <string>Сохранить заметку</string>
+   </property>
+  </action>
+  <action name="actionDeleteNote">
+   <property name="text">
+    <string>Удалить заметку</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>title</tabstop>
+  <tabstop>tableWidget</tabstop>
+  <tabstop>delMetricBtn</tabstop>
+  <tabstop>addMetricBtn</tabstop>
+  <tabstop>textEdit</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
